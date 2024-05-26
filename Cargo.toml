@@ -1,6 +1,6 @@
 [package]
 name = "libnoise"
-version = "1.0.0"
+version = "1.1.2"
 authors = ["Contributors to the libnoise-rs Repository"]
 edition = "2021"
 license = "MIT"
@@ -12,15 +12,19 @@ description = "A simple, performant, and customizable procedural noise generatio
 keywords = ["noise", "procedural", "perlin", "simplex", "worley"]
 categories = ["algorithms", "mathematics", "game-development", "graphics"]
 
+[package.metadata.docs.rs]
+all-features = true
+
 [features]
 dev-tools = ["dep:criterion"]
+image = ["dep:image"]
 
 [dependencies]
 num-traits = "0.2.16"
 rand_chacha = { version = "0.3.1" }
 rand = { version = "0.8.5", features = [], default-features = false }
 itertools = "0.10.5"
-image = { version = "0.24.6", features = ["gif"], default-features = false, optional = true }
+image = { version = "0.24.6", features = ["gif"], optional = true }
 criterion = { version = "0.5.1", optional = true }
 
 [dev-dependencies]
@@ -53,6 +57,9 @@ strip = false
 
 [[test]]
 name = "test_sources"
+
+[[test]]
+name = "test_other"
 
 [[test]]
 name = "test_adapters"
